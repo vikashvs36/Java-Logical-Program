@@ -1,5 +1,7 @@
 package com.basic_programs;
 
+import com.util.UtilHelper;
+
 import java.util.Scanner;
 
 public class Palindrome {
@@ -7,9 +9,9 @@ public class Palindrome {
     public static void main(String[] args) {
         Scanner scanner=new Scanner(System.in);
         System.out.print("Enter a number to check palindrome : ");
-        long num=scanner.nextLong();
-        String result=isPalindrome(num) ? "Yes" : "No";
-        System.out.println(num+" is "+result);
+        String str=scanner.next();
+        String result=checkPalindrome(str) ? "Yes" : "No";
+        System.out.println("Is "+str+" palindrome : "+result);
 
     }
 
@@ -23,5 +25,27 @@ public class Palindrome {
         }
 
         return temp == reverse;
+    }
+
+    public static boolean isPalindrome(String str) {
+        str = UtilHelper.toLowercase(str);
+        char arr[]=str.toCharArray();
+        String reverse="";
+
+        for (int i=0; i<arr.length; i++) { reverse = arr[i]+reverse; }
+//        for (int i=arr.length-1; i>=0; i--) { reverse += arr[i]; }
+
+        return str.equals(reverse);
+    }
+
+    private static boolean checkPalindrome(String str){
+        boolean flag=true;
+        long num=0;
+
+        try {
+            num=Long.parseLong(str);
+        }catch (NumberFormatException ex) { flag = false; }
+
+        return flag == true ? isPalindrome(num) : isPalindrome(str);
     }
 }
