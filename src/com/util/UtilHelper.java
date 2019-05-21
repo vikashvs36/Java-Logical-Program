@@ -5,9 +5,10 @@ public class UtilHelper {
     private static final int DIFF=32;
 
     public static void main(String[] args) {
-        System.out.println("ToLowercase : "+toLowercase("VikAsh"));
-        System.out.println("ToUppercase : "+toUppercase("VikAsh"));
-        System.out.println("ToToggleCase : "+toToggle("VikAsh"));
+        String name="VikAsh";
+        System.out.println("ToLowercase : "+toLowercase(name));
+        System.out.println("ToUppercase : "+toUppercase(name));
+        System.out.println("ToToggleCase : "+toToggle(name));
     }
 
     public static String toLowercase(String str){
