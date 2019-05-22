@@ -9,7 +9,8 @@ public class GCD {
     public static void main(String[] args) {
 //        int num1 = 55, num2 = 121;
         int num1 = 30, num2 = 250;
-        System.out.printf("GCD of %d and %d is : %d", num1, num2, gcd(num1, num2, 1));
+        System.out.printf("GCD of %d and %d is : %d", num1, num2, gcd(num1, num2));
+        System.out.printf("\nGCD of %d and %d is : %d", num1, num2, gcd(num1, num2, 1));
 
     }
 
@@ -22,5 +23,17 @@ public class GCD {
         }
 
         return gcd;
+    }
+
+    private static long gcd(long num1, long num2) {
+        while (num1 != num2) {
+            if (num1 > num2)
+                num1 =num1-num2;
+            else
+                num2 = num2-num1;
+        }
+
+        // num1 or num2 any can be return
+        return num1;
     }
 }
